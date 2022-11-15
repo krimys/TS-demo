@@ -3,12 +3,6 @@ import httpStatus from 'http-status';
 import authService from './auth.services';
 import createResponse from './../utils/response';
 import Messages from './../utils/messages';
-import bcrypt from 'bcryptjs';
-import messages from '@src/utils/messages';
-// import authServices from "./auth.services";
-// import emailService from "./../services/email_services";
-// import tokenService from "./../services/token_services";
-// import AppError from "../utils/AppError";
 import { uploadOnCloudinary } from '../common/cloudinary.service';
 
 const register: any = async (req: Request, res: Response, next: NextFunction) => {
@@ -19,9 +13,6 @@ const register: any = async (req: Request, res: Response, next: NextFunction) =>
 
 const updateUser = async (req: Request, res: Response, next: NextFunction) => {
   if (req.file) {
-
-
-    
     if (req.body.type == 'image') {
       let profileImage: any = await uploadOnCloudinary(req.file.path, true);
       req.body['image'] = profileImage.secure_url;
