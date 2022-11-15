@@ -19,6 +19,8 @@ const register: any = async (req: Request, res: Response, next: NextFunction) =>
 
 const updateUser = async (req: Request, res: Response, next: NextFunction) => {
   if (req.file) {
+
+
     
     if (req.body.type == 'image') {
       let profileImage: any = await uploadOnCloudinary(req.file.path, true);
